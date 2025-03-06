@@ -1,0 +1,14 @@
+<!-- Chico tem 1,50 metro e cresce 2 centímetros por ano, enquanto Zé tem 1,10 metro e cresce 3 centímetros por ano. Construa um algoritmo que calcule e imprima quantos anos serão necessários para que Zé seja maior que Chico. -->
+
+<script>
+    let chico = 1.50
+    let ze = 1.10
+    let ano = 0
+
+    while(chico >= ze){
+        chico += 0.02
+        ze += 0.03
+        ano++
+    }
+    alert(`depos de ${ano} ze (${ze.toFixed(2)}m) ficou mais alto que chico (${chico.toFixed(2)}m)`)
+</script>

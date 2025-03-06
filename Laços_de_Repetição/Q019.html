@@ -1,0 +1,66 @@
+<!-- Em uma eleição presidencial existem quatro candidatos. Os votos são informados
+através de códigos. Os dados utilizados para a contagem dos votos obedecem à
+seguinte codificação:
+
+- 1,2,3,4 = voto para os respectivos candidatos;
+- 5 = voto nulo;
+- 6 = voto em branco;
+
+Elabore um algoritmo que leia o código do candidato em um voto. Calcule e escreva:
+
+- Total de votos para cada candidato;
+- Total de votos nulos;
+- Total de votos em branco;
+
+Como finalizador do conjunto de votos, tem-se o valor 0. -->
+
+<script>
+    let num = 0
+    let dama = 0
+    let kane = 0
+    let rey = 0
+    let leo = 0
+    let branco = 0
+    let nulo = 0
+
+    do {
+         num = Number(prompt(`Vote no seu candidato preferido para se tornar o novo visconde de Terras Indomaveis
+         1.Alva Foley
+         2.Oscar Kane
+         3.Rey Scorpion Kennedy
+         4.Leo Horn
+         
+         5.voto nulo
+         6.voto em branco`))
+
+         if(num == 1){
+            dama++
+         }
+         if(num == 2){
+            kane++
+         }
+         if(num == 3){
+            rey++
+         }
+         if(num == 4){
+            leo++
+         }
+         if(num == 5){
+            nulo++
+         }
+         if(num == 6){
+            branco++
+         }
+     } while (num !== 0)
+
+    alert(`
+    - Total de votos para Alva Foley: ${dama};
+    - Total de votos para Oscar Kane ${kane};
+    - Total de votos para Rey Scorpion Kennedy ${rey};
+    - Total de votos para Leo Horn ${leo};
+    - Total de votos nulos: ${nulo};
+    - Total de votos em branco ${branco};
+`)
+
+
+</script>

@@ -1,0 +1,32 @@
+<!-- Após cada registro, o programa deve perguntar ao usuário se deseja registrar outra entrega de leite. O loop de registro deve continuar enquanto o usuário escolher continuar (digitando 'S' ou 's') e enquanto houver espaço no tanque. -->
+ <script>
+    let litros = 0
+    let capatual = 0
+    let capmaxima = 1000
+    let fim = " "
+
+    do{
+        litros = Number(prompt("informe quanto litros serão armazenados hoje.(Em Litros)"))
+
+         if(litros > 0){
+            capatual+=litros
+
+            if(capatual == capmaxima){
+                alert("tanque cheio")
+                break
+            }
+            if(capatual > capmaxima){
+                alert("o tanque não suporta essa quantidade")
+                break
+            }
+
+            if(capatual < capmaxima){
+                alert(`quantidade total de leite no tanque: ${capatual} Litros`)
+                
+            }
+            
+
+            fim = prompt(`Deseja continuar registrando? S/N`)
+        }
+    }while(fim == "s" || fim == "S")
+ </script>

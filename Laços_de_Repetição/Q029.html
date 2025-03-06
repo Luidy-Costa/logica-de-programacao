@@ -1,0 +1,19 @@
+<!-- Peça notas ao usuário até que ele escolha parar. Após isso, exiba a média das notas
+digitadas. -->
+<script>
+    let notas = 0
+    let soma = 0
+    let cont = 0
+    let media = 0
+
+    do{
+        notas = Number(prompt("insira notas aqui"))
+        if(!isNaN(notas)){
+        cont ++
+        soma+=notas
+        }
+    }while(!isNaN(notas))
+    media = soma/cont
+
+    alert(media)
+</script>

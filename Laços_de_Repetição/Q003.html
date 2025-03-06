@@ -1,0 +1,23 @@
+<!-- Escreva um algoritmo que calcule a média dos números digitados pelo usuário, se eles forem pares. Termine a leitura se o usuário digitar zero (0). -->
+
+<script>
+    let num = 0
+    let arm = 0
+    let cont = 0
+    let media = 0
+
+    do{
+        num = Number(prompt(`insira seus valores, caso qeuria encerrar o programa digite "0"`))
+
+        if(num%2==0 && num!=0){
+        arm += num
+
+        cont++
+    }
+    
+    
+    }while(num != 0)
+    media = arm/cont
+
+    alert(`a media dos seus valores pares é ${media}`)
+</script>

@@ -1,0 +1,16 @@
+<!-- Peça ao usuário um número entre 1 e 10. Continue pedindo até que ele forneça um número válido.  -->
+
+<script>
+    let num = 0
+
+    do{
+        num = Number(prompt(`insira um numero de 1 a 10`))
+
+        if(num < 1 || num > 10 ){
+
+            alert(`${num} não é um numero válido`)
+        }   
+    }while(num < 1 || num > 10)
+
+    alert(`${num} é um numero valido`)
+</script>

@@ -1,0 +1,56 @@
+<!-- 8. Foi feita uma estatística em cinco cidades brasileiras para coletar dados sobre acidentes de trânsito. Foram obtidos os seguintes dados:
+a. Código da cidade;
+b. Número de veículos de passeio (em 1999);
+c. Número de acidentes de trânsito com vítimas (em 1999).
+Deseja-se saber:
+I) Qual o maior e menor índice de acidentes de trânsito e a que cidade pertence; 
+II) Qual a média de veículos nas cinco cidades juntas;
+III) Qual a média de acidentes de trânsito nas cidades com menos de 2.000 veículos de passeio.-->
+
+<script>
+    let codigo = 0
+    let numveiculo = 0
+    let numacidente = 0
+    let contveiculo = 0
+    let menorcont = 0
+    let media = 0
+    let soma = 0
+    let maiorindice = 0
+    let cidademaior = 0
+    let menorindice = Infinity
+    let cidademenor = Infinity
+
+    for(let c = 1;c<=5;c++){
+
+        codigo=prompt(`digite o codigo da ${c}ª cidade`)
+        numveiculo = Number(prompt(`digite o numero de veiculos existentes na cidade ${codigo}`))
+        numacidente = Number(prompt(`digite o numero de acidentes de transito com vitimas existentes na cidade ${codigo}`))
+
+        contveiculo+=numveiculo
+
+        if(numacidente > maiorindice){
+            maiorindice = numacidente
+            cidademaior = codigo
+            
+        }
+
+        if(numacidente < menorindice){
+            menorindice = numacidente
+            cidademenor = codigo
+        }
+
+        if(numveiculo < 2000){
+            soma +=numacidente
+            menorcont ++
+        }
+    }
+    media = contveiculo/5
+    let menormedia = soma/menorcont
+
+    alert(`${cidademaior} é a cidade com maior indice de acidentes, com ${maiorindice} acidentes regristrados 
+    Ja a cidade com menor indice de acidentes é a ${cidademenor} com um total de ${menorindice} acidentes
+    
+    a media de veiculos em todas a cidade é de ${media}
+    
+    A media de acidentes de cidades com menos de 2000 veiculos é de ${menormedia}`)
+</script>

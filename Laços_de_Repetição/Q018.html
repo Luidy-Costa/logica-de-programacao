@@ -1,0 +1,42 @@
+<!-- A prefeitura de uma cidade fez uma pesquisa entre seus habitantes, coletando dados sobre o salário e número de filhos. A prefeitura deseja saber:
+a. média do salário da população;
+b. média do número de filhos;
+c. maior salário;
+d. percentual de pessoas com salário até R$100,00.
+O final da leitura de dados se dará com a entrada de um salário negativo. -->
+
+<script>
+    let xs = 0
+    let salario = 0
+    let filhos = 0
+    let maiorsalario = 0
+    let salarioruim = 0
+    let pessoas = 0
+
+    do {
+        xs = Number(prompt("digite seu salario"))
+
+        if (xs >= 0) {
+            pessoas ++
+            salario += xs
+
+            x = Number(prompt(`digite quantos filhoes vc tem`))
+            
+            filhos += x
+
+            if (xs > maiorsalario) {
+                maiorsalario = xs
+            }
+
+            if (xs < 100)
+                salarioruim++
+
+        }
+    } while (xs >= 0)
+    alert(`
+     a. média do salario da população é ${salario / pessoas} \n
+     b. média do número de filhos é ${filhos / pessoas}\n
+     c. maior salário é ${maiorsalario}\n
+     d. percentual de pessoas com salário até R$100,00 é ${(salarioruim / pessoas)*100}%
+     `)
+</script>

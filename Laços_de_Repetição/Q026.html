@@ -1,0 +1,19 @@
+<!-- 26. Escreva um programa que peça a senha ao usuário. O programa deve continuar
+solicitando a senha até que o usuário insira a senha correta, definida previamente no
+programa. Após o login bem-sucedido, exiba "Acesso permitido". -->
+
+<script>
+    let senha_usuario = ""
+    let senha_correta = "luidyola"
+
+    do{
+        senha_usuario = prompt("insira a sua senha.")
+
+        if (senha_usuario !== senha_correta){
+            alert(`acesso negado`)
+        }
+    }while(senha_usuario !== senha_correta)
+
+    alert(`Acesso permitido`)
+
+</script>

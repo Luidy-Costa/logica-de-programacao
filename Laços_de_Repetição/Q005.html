@@ -1,0 +1,23 @@
+<!-- O algoritmo deverá ler, além das notas, o código do aluno e deverá ser encerrado quando o código for igual a zero. -->
+
+<script>
+    let cod
+    let n1
+    let n2
+    let n3
+
+    do{
+        cod = Number( prompt("insira o codigo do aluno"))
+
+        if (cod != 0){
+            n1 = Number(prompt("insira a 1ª nota"))
+            n2 = Number(prompt("insira a 2ª nota"))
+            n3 = Number(prompt("insira a 3ª nota"))
+
+            alert(`A media do aluno ${cod} é ${(n1+n2+n3)/3}`)
+
+        }
+    }while(cod != 0)
+
+    alert("fim do programa")
+</script>

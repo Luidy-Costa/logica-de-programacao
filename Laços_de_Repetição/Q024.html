@@ -1,0 +1,22 @@
+<!-- 24. Escreva um programa que leia 10 números inteiros e exiba:
+a. A soma de todos os números.
+b. A quantidade de números pares. -->
+
+<script>
+    let num = 0
+    let soma = 0
+    let par = 0
+
+    for (let i = 1;i<=10;i++){
+
+        num = Number(prompt(`Insira um numero`))
+
+        soma+= num
+
+        if(num%2==0){
+            par++
+        }
+    }
+
+    alert(`a. A soma de todos os números é ${soma}\nb. A quantidade de números pares é ${par}`)
+</script>

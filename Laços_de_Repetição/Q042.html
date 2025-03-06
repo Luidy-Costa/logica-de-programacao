@@ -1,0 +1,29 @@
+    <!-- 42. Desenvolver um algoritmo que leia a altura de 15 pessoas. Este programa deverá calcular e mostrar:
+    a. A menor altura do grupo;
+    b. A maior altura do grupo; -->
+
+    <script>
+        let altura = 0
+        let maioraltura = 0
+        let menoraltura = Infinity
+        let maiornome = 0
+        let menornome = 0
+
+        for(let i = 1; i <= 15; i++){
+            altura = Number(prompt(`Insira a altura da ${i}ª pessoa`))
+
+            if(altura > maioraltura){
+                maioraltura = altura
+                maiornome = i
+
+            } else if(altura < menoraltura){
+
+                menoraltura = altura
+                menornome = i
+                
+            }
+            
+        }
+
+        alert(`a pessoa com maior altura é o numero ${maiornome}(${maioraltura})!!!\n\nA pessoa com menor altura é o numero${menornome}(${menoraltura})!!!`)
+    </script>

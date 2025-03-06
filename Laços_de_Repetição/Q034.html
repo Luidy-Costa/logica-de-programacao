@@ -1,0 +1,19 @@
+<!-- 34. Faça um programa que leia cinco grupos de quatro valores ( A, B, C, D) e mostre-os na ordem lida. Em seguida, mostre-os em ordem crescente e decrescente. -->
+<script>
+    for (let i = 1; i <= 5; i++) {
+    let grupo = [];
+    
+    grupo[0] = Number(prompt(`Digite o valor A do grupo ${i}:`));
+    grupo[1] = Number(prompt(`Digite o valor B do grupo ${i}:`));
+    grupo[2] = Number(prompt(`Digite o valor C do grupo ${i}:`));
+    grupo[3] = Number(prompt(`Digite o valor D do grupo ${i}:`));
+
+    alert(`Grupo ${i} na ordem lida: ${grupo.join(", ")}`);
+
+    let crescente = [...grupo].sort((a, b) => a - b);
+    alert(`Grupo ${i} em ordem crescente: ${crescente.join(", ")}`);
+
+    let decrescente = [...grupo].sort((a, b) => b - a);
+    alert(`Grupo ${i} em ordem decrescente: ${decrescente.join(", ")}`);
+    }
+</script> 

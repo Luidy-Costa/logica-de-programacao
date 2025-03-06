@@ -1,0 +1,21 @@
+<!-- Escreva um algoritmo que leia 50 valores e encontre o maior e o menor deles. Mostre o resultado. -->
+
+<script>
+    let num = 0
+    let maior = 0
+    let menor = Infinity
+
+    for( let i = 1;i <=50;i++){
+
+        num = Number(prompt(`Escreva um numero`))
+
+        if(num > maior ){
+            maior = num
+        }
+        if(num < menor ){
+            menor = num
+        }
+
+    }
+    alert(`O maior numero é ${maior} \n O menor numero é ${menor}`)
+</script>

@@ -1,0 +1,23 @@
+<!-- O programa deve permitir que os produtores informem a quantidade de leite entregue diariamente em seus baldes. Cada vez que um produtor registra sua entrega, o programa deve calcular e exibir a quantidade total de leite no tanque de resfriamento. O sistema deve impedir que a quantidade total exceda a capacidade máxima do tanque (mil litros). -->
+
+<script>
+    let litrosinseridos = 0
+    let capatual = 1000
+
+    do{
+        litrosinseridos = Number(prompt(`insira quantos litros serão colocados`))
+
+        capatual-=litrosinseridos
+
+        if(capatual > 0){
+            alert(`o tanque ainda suporta ${capatual} litros`)
+        }
+        if(capatual == 0){
+            alert(`o tanque não suporta mais o acrecimo de nenum volume de leite`)
+        }
+        if(capatual < 0){
+            alert(`o tanque ja utrapassou sua capacidade maxima em ${capatual * -1}! intervir imediatamente, o tanque não suporta o volume recebido`)
+        }
+        
+    }while(!isNaN (litrosinseridos))
+</script>

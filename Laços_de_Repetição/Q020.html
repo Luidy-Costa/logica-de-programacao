@@ -1,0 +1,16 @@
+<!-- 20. Solicite ao usuário, e armazene-as. Pare de pedir quando ele digitar uma idade
+negativa. -->
+
+<script>
+    let idade
+    let save
+
+    do{
+        idade = Number(prompt(`digite sua idade`))
+        if(idade >= 0){
+            save+=idade
+        }
+
+    }while(idade >= 0)
+    alert(`fim do programa`)
+</script>

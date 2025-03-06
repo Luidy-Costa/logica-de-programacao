@@ -1,0 +1,35 @@
+<!-- Implemente um programa que simule um carrinho de compras. O programa deve:
+a. Mostrar uma lista de produtos com preços.
+b. Permitir ao usuário adicionar produtos ao carrinho.
+c. Exibir o total da compra e a quantidade de itens ao final. -->
+
+<script>
+    let maça = 2.00
+    let pera = 1.50
+    let abacaxi = 5.00
+    let preço = 0
+    let num = 0
+    let cont = 0
+
+    do {
+        num = Number(prompt(` 1.maça; $R${maça}\n 2.pera; $R${pera} abacaxi: $R${abacaxi}\n\n digite o numero do produto que deseja comprar ou digite 0 para encerrar a compra`))
+
+       if(num == 1){
+        cont++
+        preço+= maça
+       }
+
+       if( num == 2){
+        cont++
+        preço+=pera
+       }
+
+       if(num == 3){
+        cont++
+        preço+=abacaxi
+       }
+
+    }while(num !== 0)
+
+    alert(`o seu pedido custa um total de $R${preço} \n vc comprou um total de ${cont} produtos`)
+</script>

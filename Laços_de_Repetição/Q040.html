@@ -1,0 +1,44 @@
+<!-- Faça um programa que receba duas notas de seis alunos, calcule e mostre: 
+• A média aritmética das duas notas de cada aluno;
+• A mensagem que está na tabela a seguir:
+• O total de alunos aprovados;
+• O total de alunos de exame;
+• Total de alunos reprovados;
+• A média da classe. -->
+
+<script>
+    let n1 = 0
+    let n2 = 0
+   
+    let aprovado = 0
+    let provafinal = 0
+    let reprovado = 0
+    let notaclasse = 0
+   
+
+    for(let i = 1;i <=6;i++){
+
+        n1 = Number(prompt(`Digite a 1ª nota do aluno ${i}`))
+        n2 = Number(prompt(`Digite a 2ª nota do aluno ${i}`))
+
+        let medialuno = (n1+n2)/2
+        notaclasse += medialuno
+        alert(`A media do aluno ${i} é: ${medialuno}`)
+
+        if(medialuno > 7){
+            aprovado ++
+        }
+        if(medialuno >= 3 && medialuno <= 7){
+            provafinal ++
+        }
+        if(medialuno < 3){
+            reprovado ++
+        }
+
+
+    }
+     
+     let mediaclase = notaclasse/6
+     alert(`o numero exato de alunos aprovados é ${aprovado}\nO numero exato de alunos que irão para a prova final é de: ${provafinal}\nO numero exato de alunos reprovados é de: ${reprovado}`)
+    alert(`a media das notas desta classe é: ${mediaclase}`)
+</script>

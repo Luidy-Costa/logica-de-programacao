@@ -1,0 +1,29 @@
+<!-- Faça um programa que leia dez conjuntos de dois valores, o primeiro representando o número do aluno e o segundo representando a sua altura em centímetros. 
+ a. Encontre o aluno mais alto e o mais baixo.
+b. Mostre o número do aluno mais alto e o número do mais baixo junto com suas alturas. -->
+
+<script>
+    let numaluno = 0
+    let altura = 0
+    let maioraltura = 0
+    let alunomaior = 0
+    let menoraltura = Infinity
+    let alunomenor = 0
+
+    for(let i = 1;i<=10;i++){
+        numaluno=Number(prompt(`Insira o número do ${i}º aluno`))
+        altura=Number(prompt(`Insira a altura do aluno ${numaluno}`))
+
+        if(altura > maioraltura){
+            maioraltura = altura
+            alunomaior = numaluno
+        }
+
+        if(altura < menoraltura){
+            menoraltura = altura
+            alunomenor = numaluno
+        }
+    }
+    alert(`o maior aluno é ${alunomaior} medindo(${maioraltura})
+    o menor aluno é ${alunomenor} medindo (${menoraltura})`)
+</script>

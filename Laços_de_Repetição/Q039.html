@@ -1,0 +1,41 @@
+<!-- 39. Uma empresa contratou 15 funcionários temporários. De acordo com o valor das vendas mensais, os funcionários adquirem pontos que determinarão seus salários ao final de cada mês. Sabe-se que esses funcionários trabalharão nos meses de novembro a janeiro do ano subsequente.
+Faça um programa que:
+a) Leia as pontuações nos três meses de cada funcionário;
+b) Calcule e mostre a pontuação geral de cada funcionário nos três meses;
+c) Calcule e mostre a média das pontuações de cada funcionário nos três meses;
+d) Determine e mostre a maior pontuação atingida entre os todos os funcionários nos três meses. -->
+
+<script>
+    let nome = " "
+    let nomevencedor = " "
+    let pontosnov = 0
+    let pontosdez = 0
+    let pontosjan = 0
+    let maiorponto = 0
+    let maiormedia = 0
+
+    for(let f = 1;f <=3;f++){
+
+        nome = prompt(`Qual seu nome?`)
+        pontosnov = Number(prompt(`digite seus pontos de novembro`))
+        pontosdez = Number(prompt(`digite seus pontos de dezembro`))
+        pontosjan = Number(prompt(`Digite seus pontos de janeiro`))
+
+        let pontosgerais = pontosdez+pontosnov+pontosjan
+        let pontosmedia = pontosgerais/3
+
+        alert(`aqui estão seus pontos totais: ${pontosgerais}`)
+
+        alert(`aqui esta a sua media de pontos por mês: ${pontosmedia}`)
+
+        if(pontosgerais > maiorponto){
+            maiorponto = pontosgerais
+            maiormedia = pontosmedia
+            nomevencedor = nome
+            
+        }
+    }
+
+    alert(`com todos esses meses de trabalho podemos afirmar com toda certeza que o funcionario com maior quantidade de pontos é: ${nomevencedor}
+com um total de ${maiorponto} pontos! \nE uma media de ${maiormedia.toFixed(2)} pontos por mês! `)
+</script>

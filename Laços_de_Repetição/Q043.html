@@ -1,0 +1,34 @@
+<!-- 43. Desenvolver um algoritmo que leia um número não determinado de valores e calcule e escreva a média aritmética dos valores lidos, a quantidade de valores positivos, a quantidade de valores negativos e o percentual de valores negativos e positivos. -->
+
+<script>
+    let num = 0
+    let cont = 0
+    let soma = 0
+    let positivo = 0
+    let negativo = 0
+    let positivoporcen = 0
+    let negativoporcen = 0
+
+    do{
+        num= Number(prompt("insira um numero"))
+        soma+=num
+        
+        if(num!== 0){
+            cont++
+            if(num>0){
+                positivo++
+            }
+            if(num<0){
+                negativo++
+            }
+        }
+
+    }while(num !== 0)
+    let media =soma/cont
+    positivoporcen = (positivo/cont)*100
+    negativoporcen = (negativo/cont)*100
+
+    alert(`a media total é: ${media}
+    Tivemos um total de ${positivo} numeros positivos, equivalente a ${positivoporcen}% dos valores
+    Tivemos um total de ${negativo} numeros negativo, equivalente a ${negativoporcen}% dos valores`)
+</script>

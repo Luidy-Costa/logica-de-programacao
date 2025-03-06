@@ -1,0 +1,40 @@
+<!-- Escrever um algoritmo que leia um número não determinado de valores e calcule a média aritmética dos valores lidos, a quantidade de valores positivos, a quantidade de valores negativos e o percentual de valores negativos e positivos. Mostre os resultados. -->
+
+<script>
+    let num = 0
+    let media = 0
+    let soma = 0
+    let positivo = 0
+    let negativo = 0
+    let positivoporcento = 0
+    let negativoporcento = 0
+    let cont = 0
+
+    do{
+        num = Number(prompt(`digite seu numero`))
+        if(!isNaN (num)){
+            soma += num
+            cont ++
+        }
+        if(num> 0){
+            positivo ++
+        }       
+        if(num < 0){
+            negativo ++
+        }
+
+        
+    }while(!isNaN (num))
+    media = soma/cont
+    positivoporcento = (positivo/cont)*100
+    negativoporcento = (negativo/cont)*100
+
+    alert(`
+    Apos calculos chegamos aos seguintrs resultados \n\n
+    a media aritimetica de todos os numeros é ${media.toFixed(2)} \n
+    A quantidade de valores positivos é ${positivo} \n
+    A quantidade de valores negativos é ${negativo} \n
+    A porcetagem de valores positivos é ${positivoporcento.toFixed(2)}% \n 
+    A porcetagem de valores negativos é ${negativoporcento.toFixed(2)}% \n
+    `)
+</script>

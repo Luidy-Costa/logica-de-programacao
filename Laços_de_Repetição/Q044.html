@@ -1,0 +1,28 @@
+<!-- 44. Escrever um algoritmo que leia uma quantidade desconhecida de números e conte quantos deles estão nos seguintes intervalos: [0-25], [26-50], [51-75] e [76-100]. A entrada de dados deve terminar quando for lido um número negativo. -->
+ <script>
+    let num = 0
+    let a = 0
+    let b = 0
+    let c = 0
+    let d = 0
+
+    do{
+        num=Number(prompt("digite o numero"))
+
+        if(num >= 0){
+            if(num>= 0 && num<=25){
+                a++
+            }
+            if(num>= 26 && num<=50){
+                b++
+            }
+            if(num>= 51 && num<=75){
+                c++
+            }
+            if(num>= 76 && num<=100){
+                d++
+            }
+        }
+    }while(num >= 0)
+    alert(`houve ${a} numeros no intervalo de [0-25] \n${b} numeros no intervalo de  [26-50]\n${c} numeros no intervalo de [51-75]\n${d} numeros no intervalo de  [76-100]`)
+ </script>

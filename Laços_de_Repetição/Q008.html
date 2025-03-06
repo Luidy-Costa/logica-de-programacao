@@ -1,0 +1,21 @@
+<!-- Implementar um menu interativo com do-while para selecionar opções de um programa. -->
+
+<script>
+    let num = 0
+
+    do{
+        num = Number(prompt(`deseja uma frase motivacional? se sim digite: \n 1.para o trabalho \n 2.para a faculdade \n 3. para sua vida amorosa`))
+
+        if(num == 1){
+            alert("vc precisa de dinheiro")
+        }
+        if(num == 2){
+            alert("estudar te deixi inteligente")
+        }
+        if(num == 3){
+            alert("vc ainda vai encontrar alguem, calma")
+        }
+
+    }while(num == 1 ||num == 2 ||num == 3)
+    alert(`ai expertinho, vc tentou o numero ${num} ne? cabou` )
+</script>

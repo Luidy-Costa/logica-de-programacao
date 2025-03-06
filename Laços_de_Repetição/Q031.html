@@ -1,0 +1,35 @@
+<!-- 31. Escreva um programa que solicite ao usuário dois números inteiros, a e b. O programa
+deve exibir todos os números múltiplos de 5 entre a e b.
+Requisitos:
+a. Use for para iterar pelos números no intervalo.
+b. Use um laço aninhado para verificar se o número é primo.                                         
+Exemplo de entrada:
+Intervalo: 10 a 20
+Saída esperada:x    
+Números múltiplos de 5 entre 10 e 20: -->
+
+<script>    
+let a = Number(prompt("Digite o primeiro número (a):"));
+let b = Number(prompt("Digite o segundo número (b):"));
+
+for (let i = a; i <= b; i++) {
+    if (i % 5 === 0) {
+        let isPrimo = true;
+
+        for (let j = 2; j <= Math.sqrt(i); j++) {
+            if (i % j === 0) {
+                isPrimo = false;
+                break;
+            }
+        }
+
+        if (isPrimo && i > 1) {
+            alert(`O número ${i} é múltiplo de 5 e é primo!`);
+        } else {
+            alert(`O número ${i} é múltiplo de 5, mas não é primo.`);
+        }
+    }
+}
+
+
+   </script> 

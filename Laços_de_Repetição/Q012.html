@@ -1,0 +1,17 @@
+<!-- O programa escolhe um número aleatório entre 1 e 10. O usuário deve adivinhar até acertar. -->
+
+<script>
+    let num = 0
+    let random = parseInt(Math.random()*10)+1
+
+    do{
+        num = parseInt(prompt(`digite o numero que vc acha`))
+
+        if(num!=random){
+            alert(`ERROU!!!`)
+        }
+
+    }while(num != random)
+
+    alert (`aaaaaaeeeee acertou o numero era ${random}`)
+</script>

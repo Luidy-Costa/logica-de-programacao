@@ -1,0 +1,25 @@
+<!-- 25. Crie um programa que continue lendo números inteiros até que o usuário digite o número zero. Ao final, o programa deve exibir:
+a. A média dos números positivos.
+b. A quantidade de números negativos digitados. -->
+
+<script>
+    let num = 0
+    let soma = 0
+    let contpositivo = 0
+    let contnegativo = 0
+
+    do{
+        num = Number(prompt(`insira um número(caso deseje encerrrar o programa digite 0)`))
+
+        if(num > 0){
+            contpositivo++
+            soma+=num   
+        }
+
+        if(num<0){
+            contnegativo++
+        }
+    }while(num !== 0)
+
+    alert(`A média dos números positivos é ${soma/contpositivo} \nA quantidade de números negativos digitados é ${contnegativo}`)
+</script>

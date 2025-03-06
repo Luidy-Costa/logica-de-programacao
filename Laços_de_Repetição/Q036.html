@@ -1,0 +1,29 @@
+<!-- Faça um programa que leia cinco pares de valores (a,b), todos inteiros e positivos, um de cada vez.Mostre os números inteiros pares de a até b (inclusive). -->
+
+<script>
+    let a = 0
+    let b = 0
+    
+
+for(let i = 1;i <=5;i++){
+    let montante = ""
+    a = Number(prompt(`insira o valor de a`))
+    b = Number(prompt(`insira o valor de b`))
+
+    if(a>b){
+        let temp = 0
+        temp = a
+        a = b
+        b = temp
+    }
+
+    for(let j = a;j <=b;j++){
+        if(j%2==0){
+            montante+=j+" "
+        }   
+    }
+    alert(`${montante}`)
+}
+
+alert(`fim do programa`)
+</script>
