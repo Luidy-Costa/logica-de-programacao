@@ -1,0 +1,19 @@
+<!-- Faça um programa para mostrar a divisão de dois números. ( obs : se o número for igual a zero, não poderá ser feita a divisão, pois não existe divisão por zero; caso contrário, dividir os números e mostrar o resultado da divisão.)  -->
+
+<script>
+    let num1 = 0
+    let num2 = 0
+    let div = 0
+
+    num1= Number(prompt(`Insira o 1º número`))
+    num2= Number(prompt(`Insira o 2º número`))
+
+    if( num1 == 0 || num2 == 0){
+        alert(`É impossivel operar uma divisão por zero`)
+        console.log(`É impossivel operar uma divisão por zero`)
+    }else{
+        div = num1/num2
+
+        alert(`A divisão de ${num1} por ${num2} é igual a ${div}`)
+    }
+</script>

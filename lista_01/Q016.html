@@ -1,0 +1,13 @@
+<!-- Faça um programa para que receba dois números maiores que zero, calcule e mostre um elevado ao outro -->
+ <script>
+    let num1 = Number(prompt(`Insira o número base`))
+    let num2 = Number(prompt(`Insira o número do expoente`))
+
+    if(num1 <= 0 || num2 <= 0){
+        alert(`Numero invalido`)
+    }else{
+        let elevação = num1 **num2
+
+        alert(`${elevação}`)
+    }
+ </script>

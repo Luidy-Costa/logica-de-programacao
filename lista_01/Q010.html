@@ -1,0 +1,23 @@
+<!-- Faça um programa que receba o salário de um funcionário e o percentual de aumento, calcule e mostre o valor do aumento e o novo salário. 1 -->
+
+<script>
+    let salatual = 0
+    let percentual = 0
+    let aumento = 0
+    let salnovo = 0
+
+    salatual = Number(prompt(`Insira seu sálario atual`))
+
+    percentual = Number(prompt(`Insira quantos % ira receber em seu pagamento`)) / 100
+    
+
+    aumento = salatual * percentual
+
+    salnovo = salatual + aumento
+
+
+
+    alert(`Seu aumento foi de R$${aumento}, e vc receberá um total de R$${salnovo}`)
+
+    console.log(`Seu aumento foi de R$${aumento}, e vc receberá um total de R$${salnovo}`)
+</script>

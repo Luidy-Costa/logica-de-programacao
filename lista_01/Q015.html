@@ -1,0 +1,20 @@
+<!-- . Faça um programa que receba um numero positivo e maior que zero, calcule e mostre:
+a)O número digitado ao quadrado;
+b) O número digitado ao cubo;
+c) A raiz quadrada do numero digitado;
+d) A raiz cúbica do numero digitado.  -->
+
+<script>
+    let num = Number(prompt(`Insira o numero`))
+
+    if(isNaN (num)||num <= 0){
+        alert(`Número Invalido`)
+    }else{
+        alert(`Aqui estão os resultados de ${num}
+        Ao quadrado: ${num**2}
+        Ao cubo: ${num **3}
+        Sua raiz quadrada: ${Math.sqrt (num)}
+        Sua raiz cúbica ${Math.cbrt(num)}
+        `)
+    }
+</script>
