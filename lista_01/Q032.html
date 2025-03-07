@@ -1,0 +1,13 @@
+<!-- Um circuito elétrico é composto de duas resistências R1 e R2 em paralelo, e ambas em sequência de uma resistência R3. Faça um algoritmo para calcular a resistência equivalente desse circuito. -->
+
+<script>
+    let r1 = Number(prompt(`diga a resistencia de r1`))
+    let r2 = Number(prompt(`diga a resistencia de r2`))
+    let r3 = Number(prompt(`diga a resistencia de r3`))
+
+    let Rp =1/( (1/r1) + (1/r2))
+
+    let Req = Rp + r3
+
+    alert(`A resistencia equivalente deste circuito eletrico é de ${Req}`)
+</script>

@@ -1,0 +1,13 @@
+<script>
+    let numero = Number(prompt("Digite um número de três algarismos:"));
+
+    // Separando as centenas, dezenas e unidades
+    let centena = Math.floor(numero / 100);
+    let dezena = Math.floor((numero % 100) / 10);
+    let unidade = numero % 10;
+
+    // Invertendo o número
+    let invertido = (unidade * 100) + (dezena * 10) + centena;
+
+    alert(`O número invertido de ${numero} é ${invertido}`);
+</script>

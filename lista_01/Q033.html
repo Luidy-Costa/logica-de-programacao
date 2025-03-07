@@ -1,0 +1,32 @@
+<!-- Em uma cidade se deseja sincronizar os semáforos. Com isto, quando um semáforo abre (fica verde), os veículos que nele estavam parados tendem a encontrar os próximos semáforos também abertos. Para que isto seja feito, os próximos semáforos precisam abrir um pouco depois, dependendo da velocidade permitida na via e da distância entre eles. Assim, ao abrir o semáforo, um veículo começa a acelerar até atingir a velocidade permitida, que mantém até chegar ao próximo semáforo, levando um certo tempo para percorrer essa distância. Para que encontre o próximo semáforo aberto, este deve abrir um pouco antes da chegada do veículo (por ex: 3 segundos antes). Faça assim um algoritmo que informe quanto tempo depois um semáforo deve abrir, dada as seguintes informações:
+a distância desde o semáforo anterior
+b. a velocidade permitida da via
+c. a aceleração típica dos carros -->
+<script>
+    let d = Number(prompt("Digite a distância até o próximo semáforo (em metros):"));
+    let V_kmh = Number(prompt("Digite a velocidade permitida na via (em km/h):"));
+    let a = Number(prompt("Digite a aceleração típica dos carros (em m/s²):"));
+
+    // Converter velocidade de km/h para m/s
+    let V = V_kmh / 3.6;
+
+    // Calcular o tempo para atingir a velocidade permitida
+    let t1 = V / a;
+
+    // Calcular a distância percorrida durante a aceleração
+    let d1 = (V ** 2) / (2 * a);
+
+    // Calcular a distância restante após atingir a velocidade permitida
+    let d2 = d - d1;
+
+    // Calcular o tempo para percorrer a distância restante a velocidade constante
+    let t2 = d2 / V;
+
+    // Tempo total de percurso
+    let T = t1 + t2;
+
+    // Definir o atraso para abertura do próximo semáforo (considerando 3 segundos antes)
+    let atraso = T - 3;
+
+    alert(`O próximo semáforo deve abrir ${atraso.toFixed(2)} segundos depois do primeiro.`);
+</script>

@@ -1,0 +1,16 @@
+<!-- Faça um algoritmo para calcular a nota semestral de um aluno. A nota semestral é obtida pela média aritmética entre a nota de 2 bimestres. Cada nota de bimestre é composta por 2 notas de provas. -->
+ <script>
+    let n1 = Number(prompt(`Diga a 1ª nota do aluno`))
+    let n2 = Number(prompt(`Diga a 2ª nota do aluno`))
+    let n3 = Number(prompt(`Diga a 3ª nota do aluno`))
+    let n4 = Number(prompt(`Diga a 4ª nota do aluno`))
+
+    bimestre1= (n1 + n2)/2
+    bimestre2 = (n3 + n4)/2
+
+    semestre = (bimestre1 + bimestre2)/2
+
+    alert(
+        `A nota semestral deste aluno é de ${semestre}`
+    )
+ </script>

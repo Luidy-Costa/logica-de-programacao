@@ -1,0 +1,9 @@
+<script>
+    let alturaPessoa = Number(prompt("Informe sua altura em metros:"));
+    let sombraPessoa = Number(prompt("Informe a sombra da sua pessoa em metros:"));
+    let sombraPredio = Number(prompt("Informe a sombra do prédio em metros:"));
+
+    let alturaPredio = (alturaPessoa * sombraPredio) / sombraPessoa;
+
+    alert(`A altura do prédio é de ${alturaPredio.toFixed(2)} metros.`);
+</script>
