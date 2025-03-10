@@ -1,0 +1,12 @@
+<script>
+   let alunos = ['Ana', 'Carlos', 'João', 'Maria', 'Lucas', 'Fernanda'];
+let medias = [6.0, 4.5, 5.5, 7.2, 3.9, 6.8];
+
+alunos.forEach((aluno, index) => {
+  if (medias[index] < 7) {
+    let necessario = 5.0 - medias[index];
+    console.log(`${aluno} precisa tirar ${necessario.toFixed(2)} no exame para ser aprovado.`);
+  }
+});
+ 
+</script>

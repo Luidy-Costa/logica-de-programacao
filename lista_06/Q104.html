@@ -1,0 +1,14 @@
+<script>
+    let vetor = [12, 7, 4, 19, 8, 3, 6, 2, 10, 13];
+let pares = [];
+let impares = [];
+
+vetor.forEach(num => {
+  if (num % 2 === 0) pares.push(num);
+  else impares.push(num);
+});
+
+console.log(`Números pares: ${pares}`);
+console.log(`Números ímpares: ${impares}`);
+
+</script>

@@ -1,0 +1,10 @@
+<script>
+ let clientes = ['Ana', 'Carlos', 'João', 'Maria', 'Lucas', 'Fernanda', 'Paulo', 'Pedro'];
+let locacoes = [20, 25, 12, 8, 35, 15, 40, 10]; // Quantidade de fitas alugadas
+
+clientes.forEach((cliente, index) => {
+  let locacoesGratis = Math.floor(locacoes[index] / 10);
+  console.log(`${cliente} tem ${locacoesGratis} locações grátis.`);
+});
+   
+</script>

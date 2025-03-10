@@ -1,0 +1,25 @@
+<script>
+let alunos = ['Ana', 'Carlos', 'João', 'Maria', 'Lucas', 'Fernanda'];
+let notas1 = [7, 5, 6, 8, 4, 7];
+let notas2 = [6, 6, 5, 7, 3, 6];
+
+let mediaClasse = 0;
+let aprovados = 0;
+let exame = 0;
+let reprovados = 0;
+
+for (let i = 0; i < alunos.length; i++) {
+  let media = (notas1[i] + notas2[i]) / 2;
+  mediaClasse += media;
+  if (media >= 7) aprovados++;
+  else if (media >= 5) exame++;
+  else reprovados++;
+}
+
+mediaClasse /= alunos.length;
+console.log(`Média de classe = ${mediaClasse}`);
+console.log(`Quantidade de aprovados = ${aprovados}`);
+console.log(`Quantidade de alunos de exames = ${exame}`);
+console.log(`Quantidade de reprovados = ${reprovados}`);
+    
+</script>

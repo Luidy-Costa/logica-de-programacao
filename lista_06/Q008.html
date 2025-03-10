@@ -1,0 +1,12 @@
+<script>
+ let vetor = [];
+let menor = Infinity;
+for (let i = 0; i < 5; i++) {
+    vetor[i] = parseInt(prompt(`Digite o valor ${i + 1}:`));
+    if (vetor[i] < menor) {
+        menor = vetor[i];
+    }
+}
+console.log("O menor elemento é:", menor);
+  
+</script>

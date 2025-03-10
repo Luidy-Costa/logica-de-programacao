@@ -1,0 +1,12 @@
+<script>
+   let A = [5, 10, 15, 20, 25];
+let B = [30, 25, 20, 15, 10];
+let somaSubtracoes = 0;
+
+for (let i = 0; i < A.length; i++) {
+  somaSubtracoes += (B[B.length - 1 - i] - A[i]);
+}
+
+console.log(`Soma das subtrações: ${somaSubtracoes}`);
+ 
+</script>

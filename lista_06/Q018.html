@@ -1,0 +1,18 @@
+<script>
+    let vetor = [];
+let pares = [];
+let impares = [];
+for (let i = 0; i < 6; i++) {
+    vetor[i] = parseInt(prompt(`Digite o valor ${i + 1}:`));
+    if (vetor[i] % 2 === 0) {
+        pares.push(vetor[i]);
+    } else {
+        impares.push(vetor[i]);
+    }
+}
+console.log("Números pares:", pares);
+console.log("Quantidade de pares:", pares.length);
+console.log("Números ímpares:", impares);
+console.log("Quantidade de ímpares:", impares.length);
+
+</script>

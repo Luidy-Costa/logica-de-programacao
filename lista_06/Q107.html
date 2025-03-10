@@ -1,0 +1,8 @@
+<script>
+  let vetor = [12, 45, 67, 89, 22, 33, 56, 78, 45, 90, 66, 34, 23, 89, 50];
+let maiorValor = Math.max(...vetor);
+
+vetor = vetor.map(num => num / maiorValor);
+console.log(`Vetor após divisão: ${vetor}`);
+  
+</script>

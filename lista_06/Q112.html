@@ -1,0 +1,21 @@
+<script>
+ let produtos = ['Produto 1', 'Produto 2', 'Produto 3', 'Produto 4', 'Produto 5', 'Produto 6', 'Produto 7', 'Produto 8', 'Produto 9', 'Produto 10'];
+let codigos = [101, 102, 103, 104, 105, 106, 107, 108, 109, 110];
+let precos = [500, 1500, 200, 3000, 800, 700, 1200, 100, 2000, 150];
+
+let aumentoProduto = (codigo, preco) => {
+  if (codigo % 2 === 0 && preco > 1000) return 0.20;
+  if (codigo % 2 === 0) return 0.15;
+  if (preco > 1000) return 0.10;
+  return 0;
+};
+
+produtos.forEach((produto, index) => {
+  let aumento = aumentoProduto(codigos[index], precos[index]);
+  let novoPreco = precos[index] + (precos[index] * aumento);
+  if (aumento > 0) {
+    console.log(`${produto} (Código: ${codigos[index]}) - Preço original: R$${precos[index]} | Novo preço: R$${novoPreco.toFixed(2)}`);
+  }
+});
+   
+</script>

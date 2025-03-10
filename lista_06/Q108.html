@@ -1,0 +1,24 @@
+<script>
+  let produtos = ['Produto 1', 'Produto 2', 'Produto 3', 'Produto 4', 'Produto 5'];
+let precos = [40, 55, 110, 120, 30];
+
+let abaixo50 = 0;
+let entre50e100 = [];
+let acima100 = [];
+let somaAcima100 = 0;
+
+precos.forEach((preco, index) => {
+  if (preco < 50) abaixo50++;
+  else if (preco >= 50 && preco <= 100) entre50e100.push(produtos[index]);
+  else {
+    acima100.push(produtos[index]);
+    somaAcima100 += preco;
+  }
+});
+
+let mediaAcima100 = somaAcima100 / acima100.length;
+console.log(`Quantidade de produtos abaixo de R$ 50: ${abaixo50}`);
+console.log(`Produtos entre R$ 50 e R$ 100: ${entre50e100}`);
+console.log(`Média dos preços dos produtos acima de R$ 100: ${mediaAcima100}`);
+  
+</script>

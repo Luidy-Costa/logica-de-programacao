@@ -1,0 +1,11 @@
+<script>
+    let vetor = [];
+let soma = 0;
+for (let i = 0; i < 6; i++) {
+    vetor[i] = parseFloat(prompt(`Digite o valor ${i + 1}:`));
+    soma += vetor[i];
+}
+let media = soma / vetor.length;
+console.log("A média dos elementos é:", media);
+
+</script>

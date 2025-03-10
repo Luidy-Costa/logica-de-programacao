@@ -1,0 +1,17 @@
+<script>
+ let vetor = [10, 15, 20, 30, 50, 60, 45];
+let multiplosDe2 = [];
+let multiplosDe3 = [];
+let multiplosDe2e3 = [];
+
+vetor.forEach(num => {
+  if (num % 2 === 0) multiplosDe2.push(num);
+  if (num % 3 === 0) multiplosDe3.push(num);
+  if (num % 2 === 0 && num % 3 === 0) multiplosDe2e3.push(num);
+});
+
+console.log(`Múltiplos de 2: ${multiplosDe2}`);
+console.log(`Múltiplos de 3: ${multiplosDe3}`);
+console.log(`Múltiplos de 2 e 3: ${multiplosDe2e3}`);
+   
+</script>
