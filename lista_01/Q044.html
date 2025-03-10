@@ -1,0 +1,11 @@
+<!-- 44. Escreva um programa que leia 3 valores e escreva a soma dos 2 maiores. -->
+<script>
+    let a = Number(prompt("Digite o primeiro valor:"));
+    let b = Number(prompt("Digite o segundo valor:"));
+    let c = Number(prompt("Digite o terceiro valor:"));
+
+    let menor = Math.min(a, b, c);
+    let somaMaiores = a + b + c - menor;
+
+    alert(`A soma dos dois maiores valores é: ${somaMaiores}`);
+</script>

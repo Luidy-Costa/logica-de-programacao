@@ -1,0 +1,15 @@
+<!-- 43. Escreva um programa que leia o número equivalente ao mês e imprima a quantidade de dias deste mês. -->
+<script>
+    let mes = Number(prompt("Digite o número do mês (1-12):"));
+    let dias;
+
+    if (mes === 2) {
+        dias = 28;
+    } else if ([4, 6, 9, 11].includes(mes)) {
+        dias = 30;
+    } else {
+        dias = 31;
+    }
+
+    alert(`O mês ${mes} tem ${dias} dias.`);
+</script>

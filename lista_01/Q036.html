@@ -1,0 +1,19 @@
+<script>
+    let valor = Number(prompt("Digite o valor do saque:"));
+    let notas = [100, 50, 20, 10, 5, 2, 1];
+    let distribuicao = {};
+
+    for (let nota of notas) {
+        distribuicao[nota] = Math.floor(valor / nota);
+        valor = valor % nota;
+    }
+
+    let resultado = "Distribuição das notas:\n";
+    for (let nota of notas) {
+        if (distribuicao[nota] > 0) {
+            resultado += `${distribuicao[nota]} nota(s) de R$ ${nota},00\n`;
+        }
+    }
+
+    alert(resultado);
+</script>

@@ -1,0 +1,9 @@
+<script>
+    let valor = Number(prompt("Digite o valor da mercadoria:"));
+
+    let prestacao = Math.floor((valor / 3));
+    let entrada = valor - (2 * prestacao);
+
+    alert(`Entrada: R$ ${entrada.toFixed(2)}
+Duas prestações de: R$ ${prestacao.toFixed(2)}`);
+</script>
