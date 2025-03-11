@@ -1,0 +1,14 @@
+<script>
+    let codigo = parseInt(prompt("Digite o código do produto:"));
+let classificacao = "";
+
+if (codigo === 1) classificacao = "Alimento não-perecível";
+else if (codigo === 2 || codigo === 3 || codigo === 4) classificacao = "Alimento perecível";
+else if (codigo === 5 || codigo === 6) classificacao = "Vestuário";
+else if (codigo === 7) classificacao = "Higiene pessoal";
+else if (codigo === 8 || codigo === 9 || codigo === 10) classificacao = "Utensílios domésticos";
+else classificacao = "Código inválido";
+
+alert(classificacao);
+
+</script>

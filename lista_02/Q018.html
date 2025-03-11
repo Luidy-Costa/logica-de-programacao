@@ -1,0 +1,17 @@
+<script>
+    let num1 = parseFloat(prompt("Digite o primeiro número:"));
+let num2 = parseFloat(prompt("Digite o segundo número:"));
+let operacao = prompt("Escolha uma operação (+, -, *, /):");
+let resultado = 0;
+
+if (operacao === "+") resultado = num1 + num2;
+else if (operacao === "-") resultado = num1 - num2;
+else if (operacao === "*") resultado = num1 * num2;
+else if (operacao === "/") {
+    if (num2 !== 0) resultado = num1 / num2;
+    else resultado = "Erro! Divisão por zero.";
+} else resultado = "Operação inválida";
+
+alert("Resultado: " + resultado);
+
+</script>

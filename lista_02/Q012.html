@@ -1,0 +1,20 @@
+<script>
+    let salario = parseFloat(prompt("Digite o salário do funcionário:"));
+
+let bonificacao = 0;
+if (salario <= 500) {
+    bonificacao = salario * 0.05;
+} else if (salario <= 1200) {
+    bonificacao = salario * 0.12;
+}
+
+let auxilioEscola = salario <= 600 ? 150 : 100;
+
+let novoSalario = salario + bonificacao + auxilioEscola;
+
+console.log(`Salário original: R$ ${salario.toFixed(2)}`);
+console.log(`Bonificação: R$ ${bonificacao.toFixed(2)}`);
+console.log(`Auxílio escola: R$ ${auxilioEscola.toFixed(2)}`);
+console.log(`Novo salário: R$ ${novoSalario.toFixed(2)}`);
+
+</script>

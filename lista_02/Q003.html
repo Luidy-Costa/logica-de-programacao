@@ -1,0 +1,29 @@
+<script>
+    // Solicita as notas ao usuário
+    let nota1 = parseFloat(prompt("Digite a primeira nota:"));
+    let nota2 = parseFloat(prompt("Digite a segunda nota:"));
+    let nota3 = parseFloat(prompt("Digite a terceira nota:"));
+    
+    // Calcula a média aritmética
+    let media = (nota1 + nota2 + nota3) / 3;
+    
+    // Determina a situação do aluno
+    let mensagem;
+    if (media < 3.0) {
+        mensagem = "REPROVADO";
+    } else if (media < 7.0) {
+        mensagem = "EXAME";
+    } else {
+        mensagem = "APROVADO";
+    }
+    
+    // Exibe os resultados
+    console.log(`Média: ${media.toFixed(2)}`);
+    console.log(`Situação: ${mensagem}`);
+    
+    // Se o aluno precisar fazer exame, calcula a nota mínima necessária para aprovação
+    if (mensagem === "EXAME") {
+        let notaExame = (6.0 * 2) - media;
+        console.log(`Nota necessária no exame para aprovação: ${notaExame.toFixed(2)}`);
+    }
+</script>

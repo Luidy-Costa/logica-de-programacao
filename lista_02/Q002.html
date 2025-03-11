@@ -1,0 +1,27 @@
+<script>
+    // Solicita as notas ao usuário
+    let notaLab = parseFloat(prompt("Digite a nota do Trabalho de Laboratório:"));
+    let notaSemestral = parseFloat(prompt("Digite a nota da Avaliação Semestral:"));
+    let notaExame = parseFloat(prompt("Digite a nota do Exame Final:"));
+    
+    // Calcula a média ponderada
+    let media = (notaLab * 2 + notaSemestral * 3 + notaExame * 5) / 10;
+    
+    // Determina o conceito com base na média
+    let conceito;
+    if (media >= 8.0) {
+        conceito = "A";
+    } else if (media >= 7.0) {
+        conceito = "B";
+    } else if (media >= 6.0) {
+        conceito = "C";
+    } else if (media >= 5.0) {
+        conceito = "D";
+    } else {
+        conceito = "E";
+    }
+    
+    // Exibe os resultados
+    console.log(`Média Ponderada: ${media.toFixed(2)}`);
+    console.log(`Conceito: ${conceito}`);
+</script>

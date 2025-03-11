@@ -1,0 +1,22 @@
+<script>
+    let lado1 = parseFloat(prompt("Digite o primeiro lado do triângulo:"));
+let lado2 = parseFloat(prompt("Digite o segundo lado do triângulo:"));
+let lado3 = parseFloat(prompt("Digite o terceiro lado do triângulo:"));
+
+if (lado1 > 0 && lado2 > 0 && lado3 > 0 &&
+    lado1 + lado2 > lado3 &&
+    lado1 + lado3 > lado2 &&
+    lado2 + lado3 > lado1) {
+    
+    if (lado1 === lado2 && lado2 === lado3) {
+        console.log("Triângulo Equilátero (3 lados iguais).");
+    } else if (lado1 === lado2 || lado1 === lado3 || lado2 === lado3) {
+        console.log("Triângulo Isósceles (2 lados iguais).");
+    } else {
+        console.log("Triângulo Escaleno (3 lados diferentes).");
+    }
+} else {
+    console.log("Os valores informados não formam um triângulo.");
+}
+
+</script>

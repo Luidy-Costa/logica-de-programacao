@@ -1,0 +1,20 @@
+<script>
+    // Recebe as notas das duas avaliações
+let nota1 = parseFloat(prompt("Digite a primeira nota:"));
+let nota2 = parseFloat(prompt("Digite a segunda nota:"));
+
+// Calcula a média
+let media = (nota1 + nota2) / 2;
+
+// Verifica a situação do aluno e exibe a mensagem correspondente
+if (media === 10) {
+    console.log("Aprovado com distinção");
+} else if (media >= 7) {
+    console.log("Aprovado");
+} else if (media >= 3) {
+    console.log("Exame");
+} else {
+    console.log("Reprovado");
+}
+
+</script>

@@ -1,0 +1,21 @@
+<script>
+    let estado = prompt("Digite a letra inicial do estado civil (C, S, V, D, E):").toUpperCase();
+let sexo = prompt("Digite a letra inicial do sexo (M ou F):").toUpperCase();
+
+let estadosCivis = {
+    "C": "Casado(a)",
+    "S": "Solteiro(a)",
+    "V": "Viúvo(a)",
+    "D": "Divorciado(a)",
+    "E": "Desquitado(a)"
+};
+
+let resultado = estadosCivis[estado] ? estadosCivis[estado] : "Estado civil inválido";
+
+if (resultado !== "Estado civil inválido") {
+    resultado += sexo === "M" ? " (Masculino)" : sexo === "F" ? " (Feminino)" : " (Sexo inválido)";
+}
+
+console.log(resultado);
+
+</script>

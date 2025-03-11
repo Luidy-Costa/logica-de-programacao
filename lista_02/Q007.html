@@ -1,0 +1,17 @@
+<script>
+    let horasTrabalhadas = parseFloat(prompt("Digite o número de horas trabalhadas na semana:"));
+let valorHora = parseFloat(prompt("Digite o valor da hora trabalhada:"));
+
+let salario = 0;
+
+if (horasTrabalhadas <= 40) {
+    salario = horasTrabalhadas * valorHora;
+} else if (horasTrabalhadas <= 60) {
+    salario = (40 * valorHora) + ((horasTrabalhadas - 40) * (valorHora * 1.5));
+} else {
+    salario = (40 * valorHora) + (20 * (valorHora * 1.5)) + ((horasTrabalhadas - 60) * (valorHora * 2));
+}
+
+console.log(`Salário semanal: R$ ${salario.toFixed(2)}`);
+
+</script>

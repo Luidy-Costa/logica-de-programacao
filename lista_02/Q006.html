@@ -1,0 +1,15 @@
+<script>
+   let valor = parseInt(prompt("Digite o valor em reais (sem centavos):"));
+let cedulas = [100, 50, 20, 10, 5, 2, 1];
+
+console.log(`Valor: R$ ${valor}`);
+
+for (let cedula of cedulas) {
+    let quantidade = Math.floor(valor / cedula);
+    if (quantidade > 0) {
+        console.log(`${quantidade} cédula(s) de R$ ${cedula}`);
+        valor %= cedula;
+    }
+}
+ 
+</script>

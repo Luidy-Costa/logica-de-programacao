@@ -1,0 +1,38 @@
+<script>
+    // Recebe o código do funcionário e o salário atual
+    let codigo = parseInt(prompt("Digite o código do funcionário (1 a 5):"));
+    let salarioAtual = parseFloat(prompt("Digite o salário atual do funcionário:"));
+    
+    let cargo = "";
+    let percentualAumento = 0;
+    
+    if (codigo === 1) {
+        cargo = "Escriturário";
+        percentualAumento = 50;
+    } else if (codigo === 2) {
+        cargo = "Secretário";
+        percentualAumento = 35;
+    } else if (codigo === 3) {
+        cargo = "Caixa";
+        percentualAumento = 20;
+    } else if (codigo === 4) {
+        cargo = "Gerente";
+        percentualAumento = 10;
+    } else if (codigo === 5) {
+        cargo = "Diretor";
+        percentualAumento = 0;
+    } else {
+        console.log("Código inválido!");
+        cargo = null;
+    }
+    
+    // Se o código for válido, calcula o novo salário
+    if (cargo) {
+        let aumento = (salarioAtual * percentualAumento) / 100;
+        let novoSalario = salarioAtual + aumento;
+    
+        console.log(`Cargo: ${cargo}`);
+        console.log(`Valor do aumento: R$ ${aumento.toFixed(2)}`);
+        console.log(`Novo salário: R$ ${novoSalario.toFixed(2)}`);
+    }
+</script>

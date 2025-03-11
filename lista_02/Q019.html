@@ -1,0 +1,11 @@
+<script>
+    let valorEmprestimo = parseFloat(prompt("Digite o valor do empréstimo:"));
+let parcelas = parseInt(prompt("Digite o número de parcelas:"));
+let salario = parseFloat(prompt("Digite seu salário:"));
+
+let valorParcela = valorEmprestimo / parcelas;
+
+if (valorParcela <= salario * 0.3) alert("Empréstimo aprovado!");
+else alert("Empréstimo negado.");
+
+</script>

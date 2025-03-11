@@ -1,0 +1,25 @@
+<script>
+    console.log("Menu de opções:");
+console.log("1 - Somar dois números");
+console.log("2 - Multiplicar dois números");
+console.log("3 - Exponencial de um número por outro");
+
+let opcao = parseInt(prompt("Escolha uma opção (1-3):"));
+
+if (opcao === 1) {
+    let n1 = parseFloat(prompt("Digite o primeiro número:"));
+    let n2 = parseFloat(prompt("Digite o segundo número:"));
+    console.log(`Resultado da soma: ${n1 + n2}`);
+} else if (opcao === 2) {
+    let n1 = parseFloat(prompt("Digite o primeiro número:"));
+    let n2 = parseFloat(prompt("Digite o segundo número:"));
+    console.log(`Resultado da multiplicação: ${n1 * n2}`);
+} else if (opcao === 3) {
+    let base = parseFloat(prompt("Digite a base:"));
+    let expoente = parseFloat(prompt("Digite o expoente:"));
+    console.log(`Resultado da exponenciação: ${Math.pow(base, expoente)}`);
+} else {
+    console.log("Opção inválida!");
+}
+
+</script>

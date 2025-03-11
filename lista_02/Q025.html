@@ -1,0 +1,27 @@
+<script>
+    // Recebe o preço de etiqueta e o código da condição de pagamento
+let precoEtiqueta = parseFloat(prompt("Digite o preço de etiqueta do produto:"));
+let codigoPagamento = parseInt(prompt("Digite o código da condição de pagamento (1 a 4):"));
+
+// Calcula o valor final a pagar com base na condição de pagamento
+let valorFinal = precoEtiqueta;
+
+if (codigoPagamento === 1) {
+    valorFinal = precoEtiqueta * 0.90; // 10% de desconto
+} else if (codigoPagamento === 2) {
+    valorFinal = precoEtiqueta * 0.95; // 5% de desconto
+} else if (codigoPagamento === 3) {
+    valorFinal = precoEtiqueta; // Preço normal
+} else if (codigoPagamento === 4) {
+    valorFinal = precoEtiqueta * 1.10; // 10% de acréscimo
+} else {
+    console.log("Código de pagamento inválido!");
+    valorFinal = null;
+}
+
+// Exibe o valor final se o código for válido
+if (valorFinal !== null) {
+    console.log(`O valor final a ser pago é: R$ ${valorFinal.toFixed(2)}`);
+}
+
+</script>

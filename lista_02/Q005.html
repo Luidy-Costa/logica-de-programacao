@@ -1,0 +1,14 @@
+<script>
+    let velocidadeMaxima = parseInt(prompt("Digite a velocidade máxima da avenida (km/h):"));
+let velocidadeMotorista = parseInt(prompt("Digite a velocidade do motorista (km/h):"));
+
+if (velocidadeMotorista > velocidadeMaxima) {
+    let excesso = velocidadeMotorista - velocidadeMaxima;
+    let multa = excesso * 5;
+    console.log(`O motorista ultrapassou o limite em ${excesso} km/h.`);
+    console.log(`Multa a pagar: R$ ${multa},00.`);
+} else {
+    console.log("Velocidade dentro do limite. Sem multa.");
+}
+
+</script>
