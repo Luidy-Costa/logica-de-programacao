@@ -1,13 +1,27 @@
-<script>
-    let produtos = ["Pastel de Carne","Pastel de Frango","Pastel de Queijo","Coxinha","Empada de frango","Refrigerante"]
-    let precos = [6.00, 5.50, 5.00, 3.50, 4.00, 3.00]
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-Vindo | PastelMel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="imgs/Pastel.png">
+</head>
+<body>  
+    <div class="container">
+        <section class="titulo">
+            <img src="imgs/Pastel.png" width="150rem" height="150rem">  <h1>Bem-vindo à PastelMel</h1> <img src="imgs/Pastel.png" width="150rem" height="150rem">
+    </section>
+    <hr>
+        <p class="escolha">Escolha seus produtos:</p>
+    <hr>
+    <br>
+        <div class="produtos-container" id="produtos"></div>
+        <h2>Total: R$ <span id="total">0.00</span></h2>
+        <button onclick="finalizarPedido()">Finalizar Pedido</button>
+        <button onclick="novoPedido()">Fazer Novo Pedido</button>
+    </div>
 
-    function exibirmenu (){
-        for(let i = 0; i < produtos.length; i++){
-            console.log( `${i+1} . ${produtos[i]} : ${precos[i]}` )
-        }
-    }
-
-    alert(`${exibirmenu()}`)
-
-</script>
+    <script src="script.js"></script>
+</body>
+</html>
