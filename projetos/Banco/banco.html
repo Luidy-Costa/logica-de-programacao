@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Bancário</title>
+    <style>
+        /* Estilos CSS para o sistema */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        
+        header {
+            background: #0056b3;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        .screen {
+            display: none;
+            background: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .active {
+            display: block;
+        }
+        
+        form {
+            margin: 20px 0;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        button {
+            background: #0056b3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        button:hover {
+            background: #003d82;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #0056b3;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .error {
+            color: red;
+            margin: 10px 0;
+        }
+        
+        .success {
+            color: green;
+            margin: 10px 0;
+        }
+        
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        
+        .menu button {
+            margin: 5px;
+            flex-grow: 1;
+            max-width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sistema Bancário</h1>
+    </header>
+    
+    <div class="container">
+        <!-- Tela de Apresentação -->
+        <div id="welcome-screen" class="screen active">
+            <h2>Bem-vindo ao Sistema Bancário</h2>
+            <p>Um sistema completo para gerenciamento de contas correntes e poupança.</p>
+            <button onclick="showScreen('login-screen')">Acessar Sistema</button>
+        </div>
+        
+        <!-- Tela de Login -->
+        <div id="login-screen" class="screen">
+            <h2>Login</h2>
+            <form id="login-form">
+                <input type="text" id="username" placeholder="Usuário" required>
+                <input type="password" id="password" placeholder="Senha" required>
+                <button type="submit">Entrar</button>
+            </form>
+            <div id="login-error" class="error"></div>
+        </div>
+        
+        <!-- Menu Principal -->
+        <div id="main-menu" class="screen">
+            <h2>Menu Principal</h2>
+            <div class="menu">
+                <button onclick="showScreen('create-account-screen')">1. Criar Conta</button>
+                <button onclick="showScreen('consult-account-screen')">2. Consultar Conta</button>
+                <button onclick="showScreen('remove-account-screen')">3. Remover Conta</button>
+                <button onclick="showScreen('credit-screen')">4. Creditar</button>
+                <button onclick="showScreen('debit-screen')">5. Debitar</button>
+                <button onclick="showScreen('interest-screen')">6. Render Juros</button>
+                <button onclick="showScreen('transfer-screen')">7. Transferência</button>
+                <button onclick="listAccounts(); showScreen('list-accounts-screen')">8. Listar Contas</button>
+                <button onclick="logout()">9. Sair</button>
+            </div>
+        </div>
+        
+        <!-- Telas de Funcionalidades -->
+        
+        <!-- Criar Conta -->
+        <div id="create-account-screen" class="screen">
+            <h2>Criar Nova Conta</h2>
+            <form id="create-account-form">
+                <select id="account-type" required>
+                    <option value="">Selecione o tipo de conta</option>
+                    <option value="CORRENTE">Conta Corrente</option>
+                    <option value="POUPANCA">Conta Poupança</option>
+                </select>
+                <input type="text" id="account-agency" placeholder="Agência" required>
+                <input type="text" id="account-holder-name" placeholder="Nome do Titular" required>
+                <input type="text" id="account-holder-cpf" placeholder="CPF do Titular" required>
+                <input type="text" id="account-holder-address" placeholder="Endereço do Titular" required>
+                <input type="text" id="account-holder-phone" placeholder="Telefone do Titular" required>
+                <input type="number" id="initial-balance" placeholder="Saldo Inicial" min="0" step="0.01">
+                <button type="submit">Criar Conta</button>
+            </form>
+            <div id="create-account-message" class="success"></div>
+            <button onclick="showScreen('main-menu')">Voltar ao Menu</button>
+        </div>
+        
+        <!-- Consultar Conta -->
+        <div id="consult-account-screen" class="screen">
+            <h2>Consultar Conta</h2>
+            <form id="consult-account-form">
+                <input type="number" id="consult-account-number" placeholder="Número da Conta" required>
+                <button type="submit">Consultar</button>
+            </form>
+            <div id="consult-account-result"></div>
+            <button onclick="showScreen('main-menu')">Voltar ao Menu</button>
+        </div>
+        
+        <!-- Remover Conta -->
+        <div id="remove-account-screen" class="screen">
+            <h2>Remover Conta</h2>
+            <form id="remove-account-form">
+                <input type="number" id="remove-account-number" placeholder="Número da Conta" required>
+                <button type="submit">Remover</button>
+            </form>
+            <div id="remove-account-message"></div>
+            <button onclick="showScreen('main-menu')">Voltar ao Menu</button>
+        </div>
+        
+        <!-- Creditar -->
+        <div id="credit-screen" class="screen">
+            <h2>Creditar em Conta</h2>
+            <form id="credit-form">
+                <input type="number" id="credit-account-number" placeholder="Número da Conta" required>
+                <input type="number" id="credit-amount" placeholder="Valor" min="0.01" step="0.01" required>
+                <button type="submit">Creditar</button>
+            </form>
+            <div id="credit-message"></div>
+            <button onclick="showScreen('main-menu')">Voltar ao Menu</button>
+        </div>
+        
+        <!-- Debitar -->
+        <div id="debit-screen" class="screen">
+            <h2>Debitar de Conta</h2>
+            <form id="debit-form">
+                <input type="number" id="debit-account-number" placeholder="Número da Conta" required>
+                <input type="number" id="debit-amount" placeholder="Valor" min="0.01" step="0.01" required>
+                <button type="submit">Debitar</button>
+            </form>
+            <div id="debit-message"></div>
+            <button onclick="showScreen('main-menu')">Voltar ao Menu</button>
+        </div>
+        
+        <!-- Render Juros -->
+        <div id="interest-screen" class="screen">
+            <h2>Render Juros</h2>
+            <form id="interest-form">
+                <input type="number" id="interest-account-number" placeholder="Número da Conta Poupança" required>
+                <input type="number" id="interest-rate" placeholder="Taxa de Juros (%)" min="0.01" step="0.01" required>
+                <button type="submit">Aplicar Juros</button>
+            </form>
+            <div id="interest-message"></div>
+            <button onclick="showScreen('main-menu')">Voltar ao Menu</button>
+        </div>
+        
+        <!-- Transferência -->
+        <div id="transfer-screen" class="screen">
+            <h2>Transferência entre Contas</h2>
+            <form id="transfer-form">
+                <input type="number" id="transfer-from" placeholder="Conta de Débito" required>
+                <input type="number" id="transfer-to" placeholder="Conta de Crédito" required>
+                <input type="number" id="transfer-amount" placeholder="Valor" min="0.01" step="0.01" required>
+                <button type="submit">Transferir</button>
+            </form>
+            <div id="transfer-message"></div>
+            <button onclick="showScreen('main-menu')">Voltar ao Menu</button>
+        </div>
+        
+        <!-- Listar Contas -->
+        <div id="list-accounts-screen" class="screen">
+            <h2>Lista de Contas</h2>
+            <div id="accounts-list"></div>
+            <button onclick="showScreen('main-menu')">Voltar ao Menu</button>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * Sistema Bancário
+         * Autor: [Seu Nome]
+         * Data: [Data]
+         * 
+         * Este sistema permite gerenciar contas bancárias (corrente e poupança) com operações como:
+         * criação, consulta, remoção, crédito, débito, transferência e aplicação de juros.
+         */
+
+        // Variáveis globais
+        let accounts = []; // Array para armazenar as contas
+        let nextAccountNumber = 1; // Contador para números de conta
+        let loggedIn = false; // Estado de login
+
+        // Dados de usuário válido (simulando autenticação)
+        const validUser = {
+            username: "admin",
+            password: "1234"
+        };
+
+        /**
+         * Função para alternar entre telas
+         * @param {string} screenId - ID da tela a ser mostrada
+         */
+        function showScreen(screenId) {
+            // Esconde todas as telas
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.classList.remove('active');
+            });
+            
+            // Mostra a tela solicitada
+            document.getElementById(screenId).classList.add('active');
+        }
+
+        /**
+         * Função para fazer logout
+         */
+        function logout() {
+            loggedIn = false;
+            showScreen('welcome-screen');
+        }
+
+        // Evento de login
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username === validUser.username && password === validUser.password) {
+                loggedIn = true;
+                showScreen('main-menu');
+                document.getElementById('login-error').textContent = '';
+            } else {
+                document.getElementById('login-error').textContent = 'Usuário ou senha inválidos';
+            }
+        });
+
+        /**
+         * Classe que representa uma conta bancária
+         */
+        class BankAccount {
+            /**
+             * Construtor da classe BankAccount
+             * @param {string} type - Tipo da conta (CORRENTE ou POUPANCA)
+             * @param {string} agency - Agência da conta
+             * @param {string} holderName - Nome do titular
+             * @param {string} holderCpf - CPF do titular
+             * @param {string} holderAddress - Endereço do titular
+             * @param {string} holderPhone - Telefone do titular
+             * @param {number} balance - Saldo inicial
+             */
+            constructor(type, agency, holderName, holderCpf, holderAddress, holderPhone, balance = 0) {
+                this.number = nextAccountNumber++;
+                this.type = type;
+                this.agency = agency;
+                this.balance = balance;
+                this.holder = {
+                    name: holderName,
+                    cpf: holderCpf,
+                    address: holderAddress,
+                    phone: holderPhone
+                };
+            }
+            
+            /**
+             * Credita um valor na conta
+             * @param {number} amount - Valor a ser creditado
+             */
+            credit(amount) {
+                if (amount > 0) {
+                    this.balance += amount;
+                    return true;
+                }
+                return false;
+            }
+            
+            /**
+             * Debita um valor da conta
+             * @param {number} amount - Valor a ser debitado
+             */
+            debit(amount) {
+                if (amount > 0 && this.balance >= amount) {
+                    this.balance -= amount;
+                    return true;
+                }
+                return false;
+            }
+            
+            /**
+             * Aplica juros na conta (apenas para poupança)
+             * @param {number} rate - Taxa de juros em porcentagem
+             */
+            applyInterest(rate) {
+                if (this.type === 'POUPANCA') {
+                    const interest = this.balance * (rate / 100);
+                    this.balance += interest;
+                    return true;
+                }
+                return false;
+            }
+        }
+
+        /**
+         * Cria uma nova conta bancária
+         */
+        document.getElementById('create-account-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const type = document.getElementById('account-type').value;
+            const agency = document.getElementById('account-agency').value;
+            const holderName = document.getElementById('account-holder-name').value;
+            const holderCpf = document.getElementById('account-holder-cpf').value;
+            const holderAddress = document.getElementById('account-holder-address').value;
+            const holderPhone = document.getElementById('account-holder-phone').value;
+            const initialBalance = parseFloat(document.getElementById('initial-balance').value) || 0;
+            
+            if (!type) {
+                document.getElementById('create-account-message').textContent = 'Selecione o tipo de conta';
+                document.getElementById('create-account-message').className = 'error';
+                return;
+            }
+            
+            const newAccount = new BankAccount(
+                type, agency, holderName, holderCpf, holderAddress, holderPhone, initialBalance
+            );
+            
+            accounts.push(newAccount);
+            
+            document.getElementById('create-account-message').textContent = 
+                `Conta criada com sucesso! Número: ${newAccount.number}`;
+            document.getElementById('create-account-message').className = 'success';
+            
+            // Limpa o formulário
+            this.reset();
+        });
+
+        /**
+         * Consulta uma conta bancária
+         */
+        document.getElementById('consult-account-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const accountNumber = parseInt(document.getElementById('consult-account-number').value);
+            const account = accounts.find(acc => acc.number === accountNumber);
+            
+            if (account) {
+                const resultDiv = document.getElementById('consult-account-result');
+                resultDiv.innerHTML = `
+                    <h3>Dados da Conta</h3>
+                    <p><strong>Número:</strong> ${account.number}</p>
+                    <p><strong>Tipo:</strong> ${account.type === 'CORRENTE' ? 'Conta Corrente' : 'Conta Poupança'}</p>
+                    <p><strong>Agência:</strong> ${account.agency}</p>
+                    <p><strong>Saldo:</strong> R$ ${account.balance.toFixed(2)}</p>
+                    <h4>Titular</h4>
+                    <p><strong>Nome:</strong> ${account.holder.name}</p>
+                    <p><strong>CPF:</strong> ${account.holder.cpf}</p>
+                    <p><strong>Endereço:</strong> ${account.holder.address}</p>
+                    <p><strong>Telefone:</strong> ${account.holder.phone}</p>
+                `;
+            } else {
+                document.getElementById('consult-account-result').textContent = 'Conta não encontrada';
+                document.getElementById('consult-account-result').className = 'error';
+            }
+        });
+
+        /**
+         * Remove uma conta bancária
+         */
+        document.getElementById('remove-account-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const accountNumber = parseInt(document.getElementById('remove-account-number').value);
+            const accountIndex = accounts.findIndex(acc => acc.number === accountNumber);
+            
+            if (accountIndex !== -1) {
+                accounts.splice(accountIndex, 1);
+                document.getElementById('remove-account-message').textContent = 'Conta removida com sucesso';
+                document.getElementById('remove-account-message').className = 'success';
+            } else {
+                document.getElementById('remove-account-message').textContent = 'Conta não encontrada';
+                document.getElementById('remove-account-message').className = 'error';
+            }
+        });
+
+        /**
+         * Credita valor em uma conta
+         */
+        document.getElementById('credit-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const accountNumber = parseInt(document.getElementById('credit-account-number').value);
+            const amount = parseFloat(document.getElementById('credit-amount').value);
+            const account = accounts.find(acc => acc.number === accountNumber);
+            
+            if (account) {
+                if (account.credit(amount)) {
+                    document.getElementById('credit-message').textContent = 
+                        `Crédito de R$ ${amount.toFixed(2)} realizado com sucesso. Novo saldo: R$ ${account.balance.toFixed(2)}`;
+                    document.getElementById('credit-message').className = 'success';
+                } else {
+                    document.getElementById('credit-message').textContent = 'Valor inválido para crédito';
+                    document.getElementById('credit-message').className = 'error';
+                }
+            } else {
+                document.getElementById('credit-message').textContent = 'Conta não encontrada';
+                document.getElementById('credit-message').className = 'error';
+            }
+        });
+
+        /**
+         * Debita valor de uma conta
+         */
+        document.getElementById('debit-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const accountNumber = parseInt(document.getElementById('debit-account-number').value);
+            const amount = parseFloat(document.getElementById('debit-amount').value);
+            const account = accounts.find(acc => acc.number === accountNumber);
+            
+            if (account) {
+                if (account.debit(amount)) {
+                    document.getElementById('debit-message').textContent = 
+                        `Débito de R$ ${amount.toFixed(2)} realizado com sucesso. Novo saldo: R$ ${account.balance.toFixed(2)}`;
+                    document.getElementById('debit-message').className = 'success';
+                } else {
+                    document.getElementById('debit-message').textContent = 
+                        account.balance < amount ? 'Saldo insuficiente' : 'Valor inválido para débito';
+                    document.getElementById('debit-message').className = 'error';
+                }
+            } else {
+                document.getElementById('debit-message').textContent = 'Conta não encontrada';
+                document.getElementById('debit-message').className = 'error';
+            }
+        });
+
+        /**
+         * Aplica juros em uma conta poupança
+         */
+        document.getElementById('interest-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const accountNumber = parseInt(document.getElementById('interest-account-number').value);
+            const rate = parseFloat(document.getElementById('interest-rate').value);
+            const account = accounts.find(acc => acc.number === accountNumber);
+            
+            if (account) {
+                if (account.type === 'POUPANCA') {
+                    const oldBalance = account.balance;
+                    if (account.applyInterest(rate)) {
+                        const interest = account.balance - oldBalance;
+                        document.getElementById('interest-message').textContent = 
+                            `Juros de ${rate}% aplicados. Rendimento: R$ ${interest.toFixed(2)}. Novo saldo: R$ ${account.balance.toFixed(2)}`;
+                        document.getElementById('interest-message').className = 'success';
+                    } else {
+                        document.getElementById('interest-message').textContent = 'Erro ao aplicar juros';
+                        document.getElementById('interest-message').className = 'error';
+                    }
+                } else {
+                    document.getElementById('interest-message').textContent = 'Apenas contas poupança podem render juros';
+                    document.getElementById('interest-message').className = 'error';
+                }
+            } else {
+                document.getElementById('interest-message').textContent = 'Conta não encontrada';
+                document.getElementById('interest-message').className = 'error';
+            }
+        });
+
+        /**
+         * Transfere valor entre contas
+         */
+        document.getElementById('transfer-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fromAccountNumber = parseInt(document.getElementById('transfer-from').value);
+            const toAccountNumber = parseInt(document.getElementById('transfer-to').value);
+            const amount = parseFloat(document.getElementById('transfer-amount').value);
+            
+            if (fromAccountNumber === toAccountNumber) {
+                document.getElementById('transfer-message').textContent = 'Não é possível transferir para a mesma conta';
+                document.getElementById('transfer-message').className = 'error';
+                return;
+            }
+            
+            const fromAccount = accounts.find(acc => acc.number === fromAccountNumber);
+            const toAccount = accounts.find(acc => acc.number === toAccountNumber);
+            
+            if (!fromAccount || !toAccount) {
+                document.getElementById('transfer-message').textContent = 'Uma das contas não foi encontrada';
+                document.getElementById('transfer-message').className = 'error';
+                return;
+            }
+            
+            if (fromAccount.debit(amount)) {
+                toAccount.credit(amount);
+                document.getElementById('transfer-message').textContent = 
+                    `Transferência de R$ ${amount.toFixed(2)} realizada com sucesso. ` +
+                    `Novo saldo da conta ${fromAccount.number}: R$ ${fromAccount.balance.toFixed(2)}. ` +
+                    `Novo saldo da conta ${toAccount.number}: R$ ${toAccount.balance.toFixed(2)}`;
+                document.getElementById('transfer-message').className = 'success';
+            } else {
+                document.getElementById('transfer-message').textContent = 
+                    fromAccount.balance < amount ? 'Saldo insuficiente' : 'Valor inválido para transferência';
+                document.getElementById('transfer-message').className = 'error';
+            }
+        });
+
+        /**
+         * Lista todas as contas cadastradas
+         */
+        function listAccounts() {
+            const accountsListDiv = document.getElementById('accounts-list');
+            
+            if (accounts.length === 0) {
+                accountsListDiv.innerHTML = '<p>Nenhuma conta cadastrada</p>';
+                return;
+            }
+            
+            let html = '<table><tr><th>Número</th><th>Tipo</th><th>Agência</th><th>Titular</th><th>Saldo</th></tr>';
+            
+            accounts.forEach(account => {
+                html += `
+                    <tr>
+                        <td>${account.number}</td>
+                        <td>${account.type === 'CORRENTE' ? 'Corrente' : 'Poupança'}</td>
+                        <td>${account.agency}</td>
+                        <td>${account.holder.name}</td>
+                        <td>R$ ${account.balance.toFixed(2)}</td>
+                    </tr>
+                `;
+            });
+            
+            html += '</table>';
+            accountsListDiv.innerHTML = html;
+        }
+    </script>
+</body>
+</html>
